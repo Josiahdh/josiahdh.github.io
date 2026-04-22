@@ -319,7 +319,8 @@
   z-index: 2;
 
   @include desktop {
-    display: block;
+    display: flex;
+    align-items: center;
   }
 
   &.visible {

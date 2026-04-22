@@ -1,6 +1,6 @@
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://josiahdh.github.io" # the base hostname & protocol for your site, e.g. https://example.com
-adobe_pdf_client_id: "" # production key from Adobe PDF Embed API (acrobatservices.adobe.com)
+adobe_pdf_client_id: "d52c33afc1b64d8cb50b9343bc940056" # production key from Adobe PDF Embed API (acrobatservices.adobe.com)
 
 collections:
   portfolio:

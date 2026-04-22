@@ -15,7 +15,6 @@
     {% if page.portfolio_filters %}
     <div class="header-filters">
       <div class="portfolio-nav-filters">
-        <button class="filter-clear" aria-label="Clear filters"><i class="ti-close"></i></button>
         <a class="filter-btn" href="{{ site.baseurl }}/#highlights" data-filter="highlights" data-text="Highlights">Highlights</a>
         {% for label in site.data.settings.portfolio-label %}
         <a class="filter-btn" href="{{ site.baseurl }}/#{{ label.type }}" data-filter="{{ label.type }}" data-text="{{ label.title }}">{{ label.title }}</a>

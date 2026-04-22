@@ -119,8 +119,6 @@
       return hash.split(",").filter(Boolean);
     }
 
-    var clearBtns = document.querySelectorAll(".filter-clear");
-
     function applyFilters(filters) {
       var categoryFilters = filters.filter(function (f) { return f !== "highlights"; });
       var highlightsActive = filters.indexOf("highlights") !== -1;
@@ -154,9 +152,6 @@
         } else {
           btn.classList.toggle("active", filters.indexOf(btn.dataset.filter) !== -1);
         }
-      });
-      clearBtns.forEach(function (btn) {
-        btn.classList.toggle("visible", filters.length >= 2);
       });
     }
 
@@ -196,11 +191,6 @@
       });
     });
 
-    clearBtns.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        setFilters([]);
-      });
-    });
 
 
     // Dock filter bar into header, tracking position to appear to slide in

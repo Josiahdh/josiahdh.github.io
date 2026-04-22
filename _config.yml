@@ -1,5 +1,5 @@
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://josiahherfurth.github.io" # the base hostname & protocol for your site, e.g. https://example.com
+url: "https://josiahdh.github.io" # the base hostname & protocol for your site, e.g. https://example.com
 adobe_pdf_client_id: "" # production key from Adobe PDF Embed API (acrobatservices.adobe.com)
 
 collections:

@@ -1,0 +1,14 @@
+{% if include.images %}
+<div class="gallery-slider-wrapper mb-5">
+  <div class="gallery-slider">
+    {% for img in include.images %}
+    <div class="gallery-slide">
+      <img src="{{ img.src | relative_url }}" alt="{{ img.caption | default: '' }}" class="img-fluid w-100 rounded">
+      {% if img.caption %}
+      <p class="gallery-caption">{{ img.caption }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

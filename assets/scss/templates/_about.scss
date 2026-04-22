@@ -1,3 +1,19 @@
+// Constrain images rendered from markdown (no img-fluid class applied automatically)
+.content {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    td {
+      padding: 4px;
+    }
+  }
+}
+
 .page-title-alt{
   padding: 350px 0 70px;
 }

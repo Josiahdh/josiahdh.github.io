@@ -1,9 +1,9 @@
-<header class="navigation fixed-top">
+<header class="navigation fixed-top{% if page.theme == 'light' or page.banner_color == 'white' %} nav-light-page{% endif %}">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand font-tertiary h3" href="{{ site.baseurl }}/">
       {% if site.data.settings.logo %}
-        <img src="{{ site.data.settings.logo | absolute_url }}" alt="{{ site.data.settings.title }}">
-        {% else if %}
+        <img class="nav-logo" src="{{ site.data.settings.logo | absolute_url }}" alt="{{ site.data.settings.title }}">
+        {% else %}
         <h3 class="text-white font-tertiary">{{site.data.settings.title}}</h3>
       {% endif %}
     </a>
@@ -12,17 +12,21 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse text-center" id="navigation">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ site.baseurl }}/">Home</a>
-        </li>
-        {% for link in site.data.settings.menu %}
-          <li class="nav-item {{ class }}">
-            <a class="nav-link" href="{{ link.link }}">{{ link.name }}</a>
-          </li>
+    {% if page.portfolio_filters %}
+    <div class="header-filters">
+      <div class="portfolio-nav-filters">
+        <button class="filter-clear" aria-label="Clear filters"><i class="ti-close"></i></button>
+        <a class="filter-btn" href="{{ site.baseurl }}/#highlights" data-filter="highlights" data-text="Highlights">Highlights</a>
+        {% for label in site.data.settings.portfolio-label %}
+        <a class="filter-btn" href="{{ site.baseurl }}/#{{ label.type }}" data-filter="{{ label.type }}" data-text="{{ label.title }}">{{ label.title }}</a>
         {% endfor %}
-      </ul>
+        <a class="filter-btn filter-btn-all" href="{{ site.baseurl }}/" data-filter="all" data-text="All">All</a>
+      </div>
+    </div>
+    {% endif %}
+    <div class="collapse navbar-collapse" id="navigation">
+      <a class="nav-portfolio-btn ml-auto" href="{{ site.baseurl }}/">Portfolio</a>
+      <a class="nav-about-btn" href="{{ site.baseurl }}/about">About Me</a>
     </div>
   </nav>
 </header>

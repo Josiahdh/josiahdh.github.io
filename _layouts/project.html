@@ -1,0 +1,119 @@
+---
+layout: default
+---
+<!-- page title -->
+<section class="page-title {{ page.banner_color }} position-relative{% unless page.banner_image %} page-title-compact{% endunless %}">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="{{ page.accent_color }} font-tertiary">{{ page.title | escape }}</h1>
+        {% if page.role %}
+        <p class="project-banner-role {{ page.accent_color }} mt-2">{{ page.role | escape }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <!-- background image -->
+  {% if page.banner_image %}
+  <div class="layer-bg w-100">
+    <img class="img-fluid w-100" src="{{ page.banner_image | relative_url }}" alt="{{ page.title | escape }} banner">
+  </div>
+  {% endif %}
+</section>
+<!-- /page title -->
+
+<section class="section pt-5{% if page.theme %} theme-{{ page.theme }}{% endif %}">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+
+        <!-- Project Meta -->
+        <div class="d-flex flex-wrap align-items-center mb-5 gap-3">
+          {% if page.tools %}
+          <span class="font-secondary text-muted project-meta-text">
+            {% for tool in page.tools %}{{ tool }}{% unless forloop.last %}, {% endunless %}{% endfor %}
+          </span>
+          {% endif %}
+          {% if page.year %}
+          {% if page.tools %}<span class="text-muted project-meta-text px-2">|</span>{% endif %}
+          <span class="font-secondary text-muted project-meta-text">{{ page.year }}</span>
+          {% endif %}
+          {% if page.link %}
+          <a href="{{ page.link }}" target="_blank" rel="noopener" class="btn btn-primary btn-sm ml-auto project-meta-btn">
+            View Project &rarr;
+          </a>
+          {% endif %}
+        </div>
+
+        <!-- Gallery (narrow) -->
+        {% if page.gallery and page.gallery.wide != true %}
+          {% if page.gallery.type == "slider" %}
+            {% include gallery-slider.html images=page.gallery.images %}
+          {% elsif page.gallery.type == "grid" %}
+            {% include gallery-grid.html images=page.gallery.images columns=page.gallery.columns %}
+          {% elsif page.gallery.type == "pdf" %}
+            {% include gallery-pdf.html src=page.gallery.src view_mode=page.gallery.view_mode start_page=page.gallery.start_page %}
+          {% elsif page.gallery.type == "video" %}
+            {% include gallery-video.html videos=page.gallery.videos %}
+          {% endif %}
+        {% endif %}
+
+        <!-- Page Content (rendered from markdown, images included inline) -->
+        <div class="content font-secondary">
+          {{ content }}
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Gallery (wide) -->
+    {% if page.gallery and page.gallery.wide == true %}
+    <div class="row">
+      <div class="col-12">
+        {% if page.gallery.type == "slider" %}
+          {% include gallery-slider.html images=page.gallery.images %}
+        {% elsif page.gallery.type == "grid" %}
+          {% include gallery-grid.html images=page.gallery.images columns=page.gallery.columns %}
+        {% elsif page.gallery.type == "pdf" %}
+          {% include gallery-pdf.html src=page.gallery.src view_mode=page.gallery.view_mode start_page=page.gallery.start_page %}
+        {% elsif page.gallery.type == "video" %}
+          {% include gallery-video.html videos=page.gallery.videos %}
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<!-- More Work -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="section-title">More Work</h2>
+      </div>
+      {% assign current_types = page.portfolio-type | map: "type" %}
+      {% assign all_others = site.portfolio | where_exp: "item", "item.url != page.url" | sort: "year" | reverse %}
+      {% assign matching_projects = "" | split: "" %}
+      {% assign other_typed_projects = "" | split: "" %}
+      {% for item in all_others %}
+        {% assign item_types = item.portfolio-type | map: "type" %}
+        {% assign shared = false %}
+        {% for t in current_types %}
+          {% if item_types contains t %}{% assign shared = true %}{% endif %}
+        {% endfor %}
+        {% if shared %}
+          {% assign matching_projects = matching_projects | push: item %}
+        {% else %}
+          {% assign other_typed_projects = other_typed_projects | push: item %}
+        {% endif %}
+      {% endfor %}
+      {% assign sorted_others = matching_projects | concat: other_typed_projects | limit: 3 %}
+      {% for project in sorted_others %}
+      {% include portfolio-card.html %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- /More Work -->

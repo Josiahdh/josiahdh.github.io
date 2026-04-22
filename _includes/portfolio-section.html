@@ -1,23 +1,36 @@
-{% if site.data.settings.portfolio-home-items %}
+{% if site.portfolio.size > 0 %}
 <!-- portfolio -->
-<section class="section">
+<section class="section bg-dark" id="portfolio">
   <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">Portfolio</h2>
+    <div class="row justify-content-center" id="section-filters">
+      <div class="col-12 col-md-auto">
+        <div class="filter-pill-wrapper">
+          <div class="portfolio-nav-filters">
+            <button class="filter-clear" aria-label="Clear filters"><i class="ti-close"></i></button>
+            <a class="filter-btn" href="{{ site.baseurl }}/#highlights" data-filter="highlights" data-text="Highlights">Highlights</a>
+            {% for label in site.data.settings.portfolio-label %}
+            <a class="filter-btn" href="{{ site.baseurl }}/#{{ label.type }}" data-filter="{{ label.type }}" data-text="{{ label.title }}">{{ label.title }}</a>
+            {% endfor %}
+            <a class="filter-btn filter-btn-all" href="{{ site.baseurl }}/" data-filter="all" data-text="All">All</a>
+          </div>
+          <div class="filter-fade filter-fade-left"><i class="ti-angle-left"></i></div>
+          <div class="filter-fade filter-fade-right"><i class="ti-angle-right"></i></div>
+        </div>
       </div>
     </div>
     <div class="row shuffle-wrapper">
-      {% for item in site.data.settings.portfolio-home-items %}
-      <div class="col-lg-4 col-6 mb-4 shuffle-item">
-        <div class="position-relative rounded hover-wrapper">
-          <img src="{{ site.baseurl }}/{{ item.image }}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+      {% assign portfolio_items = site.portfolio | sort: "year" | reverse %}
+      {% for item in portfolio_items %}
+      <div class="col-md-6 col-12 shuffle-item" data-groups="[{% for pt in item.portfolio-type %}{% unless forloop.first %},{% endunless %}&quot;{{ pt.type }}&quot;{% endfor %}]">
+        <a href="{{ item.url | prepend: site.baseurl }}" class="position-relative rounded hover-wrapper d-block">
+          <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" class="img-fluid rounded w-100 d-block">
           <div class="hover-overlay">
             <div class="hover-content">
-              <a class="btn btn-light btn-sm" href="{{ item.url }}">view project</a>
+              {% if item.title %}<div class="hover-title">{{ item.title }}</div>{% endif %}
+              {% if item.role %}<div class="hover-role">{{ item.role }}</div>{% endif %}
             </div>
           </div>
-        </div>
+        </a>
       </div>
       {% endfor %}
     </div>

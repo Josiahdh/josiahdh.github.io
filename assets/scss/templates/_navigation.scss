@@ -1,25 +1,71 @@
 .navigation{
-  padding: 40px 130px;
+  padding: 25px 90px;
   transition: .3s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background: linear-gradient(to bottom, rgba($black, 0.75) 0%, transparent 100%);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  @include desktop {
+    &::before {
+      transition: opacity 0.35s ease;
+    }
+    &.nav-menu-open::before {
+      opacity: 1;
+    }
+  }
+
+  @include mobile {
+    &::before {
+      transition: opacity 0.15s ease;
+    }
+  }
+
+  &.nav-bg::before {
+    opacity: 0 !important;
+  }
+
   &.nav-bg {
-    background-color: $primary-color;
-    padding: 15px 100px;
+    background-color: $white;
+    padding: 10px 70px;
     @include desktop {
-      padding: 15px 20px;
+      padding: 10px 20px;
+    }
+    .nav-logo {
+      height: 36px;
     }
   }
   @include desktop {
-    padding: 20px;
-    background: $primary-color;
+    padding: 15px 20px;
   }
+  @include mobile {
+    padding: 10px 15px;
+  }
+}
+
+.nav-logo {
+  height: 75px;
+  width: auto;
+  transition: height .3s ease;
 }
 
 .navbar{
   .nav-item{
     .nav-link{
-      font-family: $secondary-font;
+      font-family: $primary-font;
       text-transform: uppercase;
       padding: 15px;
+      transition: color 0.8s ease-in-out;
     }
     &.active{
       font-weight: bold;
@@ -27,6 +73,301 @@
   }
 }
 
+.navbar-toggler {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+@include mobile {
+  .navbar-collapse.collapsing {
+    transition-duration: 0.15s;
+  }
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navigation.nav-bg .navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,0,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+// Default: black (non-hero pages where nav is transparent)
 .navbar-dark .navbar-nav .nav-link{
+  color: $black;
+  font-weight: bold;
+}
+
+// Scrolled (nav-bg): always orange
+.navigation.nav-bg .navbar-nav .nav-link {
+  color: $text-color-bright !important;
+}
+
+.navigation.nav-bg .navbar-nav .nav-link:hover {
+  color: darken($text-color-bright, 20%) !important;
+}
+
+#section-filters {
+  margin-bottom: 2.5rem;
+
+  @include mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    margin: 0;
+    padding: 10px 16px;
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
+  }
+}
+
+.header-filters {
+  display: none;
+}
+
+.navigation.filters-docked .header-filters {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  z-index: 10;
+
+  @include desktop {
+    display: none;
+  }
+}
+
+
+.portfolio-nav-filters {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(to right, $text-color-bright, $primary-color, $secondary-color);
+  border: none;
+  border-radius: 30px;
+  padding: 4px;
+
+  @include desktop {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-radius: 30px;
+    margin: 0;
+    width: 100%;
+
+    &::-webkit-scrollbar { display: none; }
+    .filter-clear { display: none !important; }
+  }
+
+  .filter-clear {
+    display: none;
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: $white;
+    color: $primary-color;
+    border: none;
+    font-size: 9px;
+    -webkit-text-stroke: 0.75px currentColor;
+    line-height: 1;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 10;
+    transition: background 0.15s ease, color 0.15s ease;
+
+    &.visible {
+      display: flex;
+    }
+
+    &:hover {
+      background: $primary-color;
+      color: $white;
+    }
+  }
+
+  .filter-btn-all {
+    @media(min-width: 992px) {
+      display: none;
+    }
+  }
+
+  .filter-btn {
+    font-family: $primary-font;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 7px 18px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: 26px;
+    border: none;
+    color: $white;
+    background: transparent;
+    transition: color 0.15s ease, background 0.2s ease, border-radius 0.15s ease;
+
+    &::after {
+      content: attr(data-text);
+      font-weight: 600;
+      display: block;
+      height: 0;
+      visibility: hidden;
+      overflow: hidden;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    &:hover {
+      background: rgba($white, 0.2);
+      text-decoration: none;
+    }
+
+    &.active {
+      background: $white;
+      color: $primary-color;
+      font-weight: 600;
+    }
+
+    // Remove inner corners when two active buttons are adjacent
+    &.active:has(+ .filter-btn.active) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &.active + .filter-btn.active {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    @include desktop {
+      flex-shrink: 0;
+    }
+  }
+}
+
+.nav-portfolio-btn,
+.nav-about-btn {
+  font-family: $primary-font;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
   color: $white;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: rgba($white, 0.6);
+    text-decoration: none;
+  }
+
+  @include desktop {
+    display: block;
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+}
+
+.nav-portfolio-btn {
+  @media(min-width: 992px) {
+    margin-left: auto;
+  }
+}
+
+.nav-about-btn {
+  @media(min-width: 992px) {
+    margin-left: 20px;
+  }
+}
+
+// Light-banner pages: nav text should be dark while header is transparent
+.navigation.nav-light-page .nav-portfolio-btn,
+.navigation.nav-light-page .nav-about-btn {
+  color: $text-color-dark;
+  &:hover { color: rgba($text-color-dark, 0.5); }
+}
+
+// Scrolled (white header): nav text should be dark
+.navigation.nav-bg .nav-portfolio-btn,
+.navigation.nav-bg .nav-about-btn {
+  color: $text-color-dark;
+  &:hover { color: rgba($text-color-dark, 0.5); }
+}
+
+.filter-pill-wrapper {
+  position: relative;
+
+  @include desktop {
+    width: 100%;
+  }
+}
+
+.filter-fade {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 56px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 2;
+
+  @include desktop {
+    display: block;
+  }
+
+  &.visible {
+    opacity: 1;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    color: $white;
+    font-size: 0.7rem;
+    -webkit-text-stroke: 0.5px currentColor;
+    position: relative;
+    z-index: 1;
+  }
+
+  &.filter-fade-left {
+    left: 0;
+    background: linear-gradient(to right, $text-color-bright 40%, transparent);
+    border-radius: 30px 0 0 30px;
+    justify-content: flex-start;
+    padding-left: 10px;
+  }
+
+  &.filter-fade-right {
+    right: 0;
+    background: linear-gradient(to left, $secondary-color 40%, transparent);
+    border-radius: 0 30px 30px 0;
+    justify-content: flex-end;
+    padding-right: 10px;
+  }
+}
+
+.navigation.nav-bg .portfolio-nav-filters {
+  background: linear-gradient(to right, $text-color-bright, $primary-color, $secondary-color);
+  border: none;
+
+  .filter-btn {
+    color: $white;
+
+    &:hover { background: rgba($white, 0.2); }
+
+    &.active {
+      background: $white;
+      color: $primary-color;
+      font-weight: 600;
+    }
+  }
 }

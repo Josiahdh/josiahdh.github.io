@@ -1,18 +1,11 @@
 ---
 layout: about
 title: About Me
-author: Johnathan Smith
-image: assets/images/about/author.jpg
-signature: assets/images/about/signature.png
+author: Josiah Herfurth
+image: assets/images/about/headshot-standing.jpg
+signature:
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-commodo consequat.
+### I’m a storyteller studying Cinematic Arts at the University of Southern California.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat non proident.
-
-Deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.
+I tell stories that inspire authentic hope. Storytelling has always been the connecting thread through my work, whether musical, performative, or spatial. I have a background studying architecture, where I learned interdisciplinary tools to become a well-equipped storyteller. I aspire to be transdisciplinary, working across the built environment, narrative media, interactive media, and writing. I desire to architect stories that are catalysts for hopeful change.

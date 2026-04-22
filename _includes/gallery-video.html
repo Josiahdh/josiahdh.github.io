@@ -1,0 +1,15 @@
+{% for video in include.videos %}
+  {% if video.url contains "youtu.be" %}
+    {% assign vid_id = video.url | split: "/" | last | split: "?" | first %}
+  {% else %}
+    {% assign vid_id = video.url | split: "v=" | last | split: "&" | first %}
+  {% endif %}
+  <div class="mb-4">
+    <div class="embed-responsive embed-responsive-16by9 rounded">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ vid_id }}" allowfullscreen loading="lazy"></iframe>
+    </div>
+    {% if video.caption %}
+    <p class="text-muted mt-2 small font-secondary">{{ video.caption }}</p>
+    {% endif %}
+  </div>
+{% endfor %}

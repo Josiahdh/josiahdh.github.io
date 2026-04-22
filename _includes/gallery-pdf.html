@@ -1,0 +1,33 @@
+{% if include.src %}
+{% assign pdf_url = site.url | append: site.baseurl | append: "/" | append: include.src %}
+{% assign start_page = include.start_page | default: 1 %}
+
+<div id="adobe-dc-view" class="mb-3"></div>
+<script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
+<script>
+  document.addEventListener("adobe_dc_view_sdk.ready", function () {
+    var adobeDCView = new AdobeDC.View({
+      clientId: "{{ site.adobe_pdf_client_id }}",
+      divId: "adobe-dc-view"
+    });
+
+    var previewFilePromise = adobeDCView.previewFile({
+      content: { location: { url: "{{ pdf_url }}" } },
+      metaData: { fileName: "{{ page.title | escape }}.pdf" }
+    }, {
+      embedMode: "IN_LINE",
+      showAnnotationTools: false,
+      showLeftHandPanel: false
+    });
+
+    var startPage = {{ start_page }};
+    if (startPage > 1) {
+      previewFilePromise.then(function(adobeViewer) {
+        adobeViewer.getAPIs().then(function(apis) {
+          apis.gotoLocation(startPage, 0, 0);
+        });
+      });
+    }
+  });
+</script>
+{% endif %}

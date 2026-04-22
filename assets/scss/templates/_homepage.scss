@@ -1,3 +1,8 @@
+.footer-social-icon {
+  font-size: 1.5rem;
+  margin-right: 16px;
+}
+
 /* skills */
 .progress-wrapper {
   height: 130px;
@@ -88,17 +93,21 @@
 /* /service */
 
 /* portfolio */
+.shuffle-item {
+  margin-bottom: 30px;
+}
+
 .hover-wrapper {
   overflow: hidden;
 
   img {
     transition: .3s ease;
-    transform: scale(1.1);
+    transform: scale(1);
   }
 
   &:hover {
     img {
-      transform: scale(1);
+      transform: scale(1.05);
     }
 
     .hover-overlay {
@@ -115,19 +124,38 @@
   border-radius: inherit;
   top: 0;
   left: 0;
-  background: rgba($color: $black, $alpha: .3);
+  background: linear-gradient(to bottom, transparent 20%, rgba($black, 0.9) 100%);
   opacity: 0;
   visibility: hidden;
   transition: .3s ease;
+
+  @include mobile {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .hover-content {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  right: 0;
-  text-align: center;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  text-align: left;
+}
+
+.hover-title {
+  font-family: $primary-font;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: $white;
+}
+
+.hover-role {
+  font-family: $primary-font;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba($white, 0.8);
+  margin-top: 4px;
 }
 
 /* /portfolio */
@@ -135,7 +163,7 @@
 /* testimonial */
 .testimonial-content {
   strong {
-    color: $secondary-color;
+    color: $text-color-bright;
     font-weight: normal;
   }
 }
@@ -182,15 +210,73 @@
     right: 200px;
     bottom: -50px;
   }
+
+  .testimonial-slider {
+    position: relative;
+    padding-bottom: 70px;
+  }
+
+  .testimonial-slider .slick-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    margin: 0;
+  }
+
+  .testimonial-arrow {
+    position: absolute;
+    bottom: 20px;
+    top: auto;
+    transform: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba($white, .4);
+    border-radius: 50%;
+    background: rgba($white, .12);
+    color: $white;
+    z-index: 2;
+    transition: background .2s ease, transform .2s ease;
+  }
+
+  .testimonial-arrow:hover {
+    background: rgba($white, .3);
+  }
+
+  .testimonial-prev {
+    left: 10px;
+  }
+
+  .testimonial-next {
+    right: 10px;
+  }
+
+  @include mobile {
+    .testimonial-slider {
+      padding-bottom: 90px;
+    }
+
+    .testimonial-arrow {
+      width: 36px;
+      height: 36px;
+    }
+
+    .testimonial-prev {
+      left: 10px;
+    }
+
+    .testimonial-next {
+      right: 10px;
+    }
+  }
 }
 
 /* /testimonial */
 
 /* footer */
-.footer-section {
-  padding-top: 200px;
-}
-
 .section-on-footer {
   margin-bottom: -250px;
 }

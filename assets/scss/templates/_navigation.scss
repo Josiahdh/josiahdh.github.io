@@ -59,6 +59,18 @@
   transition: height .3s ease;
 }
 
+// Default (dark/transparent header): show white logo
+.nav-logo-color { display: none; }
+.nav-logo-white { display: block; }
+
+// Light-banner pages: show color logo
+.navigation.nav-light-page .nav-logo-color { display: block; }
+.navigation.nav-light-page .nav-logo-white { display: none; }
+
+// Scrolled (white header): always show color logo
+.navigation.nav-bg .nav-logo-color { display: block; }
+.navigation.nav-bg .nav-logo-white { display: none; }
+
 .navbar{
   .nav-item{
     .nav-link{

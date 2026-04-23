@@ -170,12 +170,18 @@
         var filter = btn.dataset.filter;
         if (filter === "all") {
           setFilters([]);
-          return;
+        } else {
+          var next = currentFilters.slice();
+          var idx = next.indexOf(filter);
+          if (idx === -1) { next.push(filter); } else { next.splice(idx, 1); }
+          setFilters(next);
         }
-        var next = currentFilters.slice();
-        var idx = next.indexOf(filter);
-        if (idx === -1) { next.push(filter); } else { next.splice(idx, 1); }
-        setFilters(next);
+
+        // On mobile, scroll to portfolio if it hasn't entered the viewport yet
+        if (window.innerWidth <= 575 && shuffleWrapper.getBoundingClientRect().top > window.innerHeight) {
+          scrollToPortfolio("smooth");
+        }
+
         var pillContainer = btn.closest(".portfolio-nav-filters");
         if (pillContainer) {
           var btnLeft = btn.offsetLeft;
@@ -252,6 +258,7 @@
       applyFilters(currentFilters);
     });
 
+
   }
 
   // Portfolio nav button: scroll images just below header
@@ -284,7 +291,15 @@
   if (navPortfolioBtn && shuffleWrapper) {
     navPortfolioBtn.addEventListener("click", function (e) {
       e.preventDefault();
-      scrollToPortfolio("smooth");
+      var navCollapse = document.getElementById('navigation');
+      if (navCollapse && navCollapse.classList.contains('show')) {
+        $('#navigation').one('hidden.bs.collapse', function () {
+          scrollToPortfolio("smooth");
+        });
+        $('#navigation').collapse('hide');
+      } else {
+        scrollToPortfolio("smooth");
+      }
     });
   }
 

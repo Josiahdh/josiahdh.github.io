@@ -59,17 +59,17 @@
   transition: height .3s ease;
 }
 
-// Default (dark/transparent header): show white logo
-.nav-logo-color { display: none; }
-.nav-logo-white { display: block; }
+// Default: show color logo
+.nav-logo-color { display: block !important; }
+.nav-logo-white { display: none !important; }
 
-// Light-banner pages: show color logo
-.navigation.nav-light-page .nav-logo-color { display: block; }
-.navigation.nav-light-page .nav-logo-white { display: none; }
+// Pages with a colored (non-white, non-black, non-image) banner: show white logo
+.navigation.nav-white-logo .nav-logo-color { display: none !important; }
+.navigation.nav-white-logo .nav-logo-white { display: block !important; }
 
 // Scrolled (white header): always show color logo
-.navigation.nav-bg .nav-logo-color { display: block; }
-.navigation.nav-bg .nav-logo-white { display: none; }
+.navigation.nav-bg .nav-logo-color { display: block !important; }
+.navigation.nav-bg .nav-logo-white { display: none !important; }
 
 .navbar{
   .nav-item{

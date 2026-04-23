@@ -3,6 +3,7 @@ layout: about
 title: About Me
 author: Josiah Herfurth
 image: assets/images/about/headshot-standing.jpg
+logo: white
 ---
 
 ### I’m a storyteller studying Cinematic Arts at the University of Southern California.

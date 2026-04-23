@@ -25,6 +25,12 @@
   }
 }
 
+.about-content {
+  @include mobile {
+    padding-top: 30px;
+  }
+}
+
 .page-title-alt{
   padding: 350px 0 30px;
 

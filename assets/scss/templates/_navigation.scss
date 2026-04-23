@@ -53,23 +53,32 @@
   }
 }
 
-.nav-logo {
+.nav-logo-wrapper {
+  position: relative;
+  display: block;
   height: 75px;
-  width: auto;
   transition: height .3s ease;
 }
 
-// Default: show color logo
-.nav-logo-color { display: block !important; }
-.nav-logo-white { display: none !important; }
+.nav-logo {
+  height: 100%;
+  width: auto;
+  transition: opacity 0.3s ease;
+}
 
-// Pages with a colored (non-white, non-black, non-image) banner: show white logo
-.navigation.nav-white-logo .nav-logo-color { display: none !important; }
-.navigation.nav-white-logo .nav-logo-white { display: block !important; }
+// Default: show color logo
+.nav-logo-color { opacity: 1; }
+.nav-logo-white { position: absolute; top: 0; left: 0; opacity: 0; }
+
+// Pages with a colored banner: show white logo
+.navigation.nav-white-logo .nav-logo-color { opacity: 0; }
+.navigation.nav-white-logo .nav-logo-white { opacity: 1; }
 
 // Scrolled (white header): always show color logo
-.navigation.nav-bg .nav-logo-color { display: block !important; }
-.navigation.nav-bg .nav-logo-white { display: none !important; }
+.navigation.nav-bg .nav-logo-color { opacity: 1; }
+.navigation.nav-bg .nav-logo-white { opacity: 0; }
+
+.navigation.nav-bg .nav-logo-wrapper { height: 36px; }
 
 .navbar{
   .nav-item{

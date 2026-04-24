@@ -263,7 +263,7 @@
 
   // Portfolio nav button: scroll images just below header
   var navPortfolioBtn = document.querySelector(".nav-portfolio-btn");
-  var navLogo = navHeader ? navHeader.querySelector(".nav-logo") : null;
+  var navLogoWrapper = navHeader ? navHeader.querySelector(".nav-logo-wrapper") : null;
 
   function scrollToPortfolio(behavior) {
     if (!shuffleWrapper || !navHeader) return;
@@ -271,7 +271,7 @@
       var wasNavBg = navHeader.classList.contains("nav-bg");
       if (!wasNavBg) {
         navHeader.style.transition = "none";
-        if (navLogo) navLogo.style.transition = "none";
+        if (navLogoWrapper) navLogoWrapper.style.transition = "none";
         navHeader.classList.add("nav-bg");
         navHeader.offsetHeight; // force reflow so logo height applies
       }
@@ -280,7 +280,7 @@
         navHeader.classList.remove("nav-bg");
         requestAnimationFrame(function () {
           navHeader.style.transition = "";
-          if (navLogo) navLogo.style.transition = "";
+          if (navLogoWrapper) navLogoWrapper.style.transition = "";
         });
       }
       var targetY = shuffleWrapper.getBoundingClientRect().top + window.scrollY - h - 2;

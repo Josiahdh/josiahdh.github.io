@@ -319,6 +319,69 @@
   }
 
 
+  // Masonry grid: left-to-right shortest-column layout
+  function layoutMasonryGrid(container) {
+    var colMatch = container.className.match(/gallery-grid-cols-(\d+)/);
+    var declaredCols = colMatch ? parseInt(colMatch[1]) : 2;
+    var isMobile = window.innerWidth <= 575;
+    var isTablet = window.innerWidth <= 991;
+    var cols = isMobile ? 1 : (isTablet ? Math.min(declaredCols, 2) : declaredCols);
+    var gap = isMobile ? 2 : 16;
+
+    var containerWidth = container.offsetWidth;
+    if (!containerWidth) return;
+
+    var colWidth = cols === 1 ? containerWidth : (containerWidth - gap * (cols - 1)) / cols;
+    var colHeights = new Array(cols).fill(0);
+    var items = Array.from(container.querySelectorAll('.gallery-grid-item'));
+
+    items.forEach(function (item) {
+      var minH = Math.min.apply(null, colHeights);
+      var col = colHeights.indexOf(minH);
+      item.style.position = 'absolute';
+      item.style.width = colWidth + 'px';
+      item.style.left = (col * (colWidth + gap)) + 'px';
+      item.style.top = minH + 'px';
+      item.style.marginBottom = '0';
+      colHeights[col] += item.offsetHeight + gap;
+    });
+
+    var totalHeight = Math.max.apply(null, colHeights);
+    container.style.height = Math.max(totalHeight - gap, 0) + 'px';
+  }
+
+  function initMasonryGrids() {
+    document.querySelectorAll('.gallery-grid').forEach(function (container) {
+      var imgs = Array.from(container.querySelectorAll('img'));
+      var unloaded = imgs.filter(function (img) { return !img.complete || !img.naturalWidth; });
+
+      if (unloaded.length === 0) {
+        layoutMasonryGrid(container);
+        return;
+      }
+
+      var remaining = unloaded.length;
+      function onImageSettled() {
+        remaining--;
+        if (remaining <= 0) layoutMasonryGrid(container);
+      }
+      unloaded.forEach(function (img) {
+        img.addEventListener('load', onImageSettled, { once: true });
+        img.addEventListener('error', onImageSettled, { once: true });
+      });
+    });
+  }
+
+  var masonryResizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(masonryResizeTimer);
+    masonryResizeTimer = setTimeout(function () {
+      document.querySelectorAll('.gallery-grid').forEach(layoutMasonryGrid);
+    }, 150);
+  }, { passive: true });
+
+  initMasonryGrids();
+
   // Scroll-aware fade overlays on filter pills
   function updateFilterFade(el) {
     var wrapper = el.closest && el.closest(".filter-pill-wrapper");

@@ -4,7 +4,7 @@ title: Paris Field Studies
 role: Student
 tools: [Sketching, 3D Scanning]
 year: 2025
-image: assets/images/paris-studies/centre-pompidou-render-v3-1.png
+image: assets/images/paris-studies/cover.png
 portfolio-type:
   - type: design
 banner_color: bg-white

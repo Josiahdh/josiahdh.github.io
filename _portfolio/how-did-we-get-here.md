@@ -6,7 +6,6 @@ tools: [Non-Fiction Filmmaking, Editing, Composing, Color Grading]
 year: 2024
 image: https://img.youtube.com/vi/1BHA0-RwIQw/maxresdefault.jpg
 portfolio-type:
-  - type: highlights
   - type: film
   - type: design
 banner_color: bg-dark

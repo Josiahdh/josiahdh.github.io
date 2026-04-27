@@ -6,7 +6,6 @@ tools: [Art Direction, Set Design, Prop Weapons, LED Wall Virtual Production]
 year: 2026
 image: assets/images/hollow-man/hollow-man-bts-5.JPG
 portfolio-type:
-  - type: highlights
   - type: film
   - type: design
 banner_color: bg-dark

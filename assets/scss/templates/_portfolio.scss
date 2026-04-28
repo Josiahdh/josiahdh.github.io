@@ -239,3 +239,11 @@
     }
   }
 }
+
+figcaption {
+  text-align: center;
+  font-size: 0.95rem;
+  color: $text-color-dark;
+  font-family: $secondary-font;
+  margin-top: 0.4rem;
+}

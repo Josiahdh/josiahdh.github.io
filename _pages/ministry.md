@@ -36,11 +36,11 @@ permalink: /ministry
         </figure>
         <p>This year, the college ministry I serve with at the University of Southern California, Christian Challenge, is sending 11 students overseas for summer mission trips! Teams are going to Japan and Germany (where I went in 2023), both seizing opportunities to serve our ministry partners that are spreading the Gospel in these regions. Especially exciting this year is that two of my housemates, Carson and Tyler, are leading the trips! Additionally, a friend in my Bible study, Daniel, and my girlfriend, Klarissa, are both going to Germany too!</p>
         <figure>
-          <img src="{{ site.baseurl }}/assets/images/ministry/j+k-2026.jpg" alt="Josiah & Klarissa 2026" class="img-fluid rounded mb-2">
+          <img src="{{ site.baseurl }}/assets/images/ministry/josiah-klarissa-2026.jpg" alt="Josiah & Klarissa 2026" class="img-fluid rounded mb-2">
           <figcaption class="text-muted font-secondary">My girlfriend Klarissa and I!</figcaption>
         </figure>
         <div class="text-center my-4">
-          <a href="https://forms.gle/JFTNLo39ZgBZEMYw8" class="btn btn-primary">Follow Along with the Trips &rarr;</a>
+          <a href="https://forms.gle/JFTNLo39ZgBZEMYw8" class="btn btn-primary">Follow the Trips &rarr;</a>
         </div>
         <p>Like last year, I ran a 10K to raise money for missions! I trained and hit my target goal of running it in under an hour. Thank you to all who sponsored me! Through fundraising, our mission teams are 100% funded!</p>
         <figure>

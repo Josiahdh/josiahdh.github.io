@@ -94,23 +94,38 @@ layout: default
         <h2 class="section-title">More Work</h2>
       </div>
       {% assign current_types = page.portfolio-type | map: "type" %}
+      {% assign current_types_filtered = "" | split: "" %}
+      {% for t in current_types %}
+        {% unless t == "highlights" %}{% assign current_types_filtered = current_types_filtered | push: t %}{% endunless %}
+      {% endfor %}
+      {% assign current_filtered_count = current_types_filtered | size %}
       {% assign all_others = site.portfolio | where_exp: "item", "item.url != page.url" | sort: "year" | reverse %}
-      {% assign matching_projects = "" | split: "" %}
-      {% assign other_typed_projects = "" | split: "" %}
+      {% assign bucket_exact = "" | split: "" %}
+      {% assign bucket_superset = "" | split: "" %}
+      {% assign bucket_partial = "" | split: "" %}
+      {% assign bucket_none = "" | split: "" %}
       {% for item in all_others %}
         {% assign item_types = item.portfolio-type | map: "type" %}
-        {% assign shared = false %}
-        {% for t in current_types %}
-          {% if item_types contains t %}{% assign shared = true %}{% endif %}
+        {% assign item_filtered_count = 0 %}
+        {% assign shared_count = 0 %}
+        {% for t in item_types %}
+          {% unless t == "highlights" %}
+            {% assign item_filtered_count = item_filtered_count | plus: 1 %}
+            {% if current_types_filtered contains t %}{% assign shared_count = shared_count | plus: 1 %}{% endif %}
+          {% endunless %}
         {% endfor %}
-        {% if shared %}
-          {% assign matching_projects = matching_projects | push: item %}
+        {% if shared_count == current_filtered_count and item_filtered_count == current_filtered_count %}
+          {% assign bucket_exact = bucket_exact | push: item %}
+        {% elsif shared_count == current_filtered_count %}
+          {% assign bucket_superset = bucket_superset | push: item %}
+        {% elsif shared_count > 0 %}
+          {% assign bucket_partial = bucket_partial | push: item %}
         {% else %}
-          {% assign other_typed_projects = other_typed_projects | push: item %}
+          {% assign bucket_none = bucket_none | push: item %}
         {% endif %}
       {% endfor %}
-      {% assign sorted_others = matching_projects | concat: other_typed_projects | limit: 3 %}
-      {% for project in sorted_others %}
+      {% assign sorted_others = bucket_exact | concat: bucket_superset | concat: bucket_partial | concat: bucket_none %}
+      {% for project in sorted_others limit: 3 %}
       {% include portfolio-card.html %}
       {% endfor %}
     </div>

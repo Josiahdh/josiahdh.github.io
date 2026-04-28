@@ -11,7 +11,7 @@ portfolio-type:
   - type: design
 banner_color: bg-dark
 accent_color: text-white
-banner_image: assets/images/beyond-the-valley/btvof-bts-2.jpg
+banner_image: assets/images/beyond-the-valley/btvof-bts-2.JPG
 theme: dark
 gallery:
   type: grid

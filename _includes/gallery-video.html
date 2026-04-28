@@ -6,7 +6,7 @@
   {% endif %}
   <div class="mb-4">
     <div class="embed-responsive embed-responsive-16by9 rounded">
-      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ vid_id }}" allowfullscreen loading="lazy"></iframe>
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ vid_id }}" title="{% if video.caption %}{{ video.caption }}{% else %}YouTube video{% endif %}" allowfullscreen loading="lazy"></iframe>
     </div>
     {% if video.caption %}
     <p class="text-muted mt-2 small font-secondary">{{ video.caption }}</p>

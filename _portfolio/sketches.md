@@ -6,6 +6,7 @@ tools: [Sketching]
 year: 2024
 image: assets/images/sketches/mudd-hall-3-point.jpg
 portfolio-type:
+  - type: highlights
   - type: design
 banner_color: bg-white
 accent_color: text-dark

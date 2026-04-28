@@ -10,9 +10,7 @@
   <meta name="theme-name" content="kross-jekyll" />
 
     
-  {% if site.author %}
-  <meta name="author" content="{{ . }}">
-  {% endif %}
+  <meta name="author" content="{{ site.data.settings.author }}">
   
   <!-- ** Plugins Needed for the Project ** -->
   {% for css in site.data.plugins.css %}
@@ -23,8 +21,8 @@
   <link href="{{ '/assets/scss/style.css' | relative_url }}" rel="stylesheet">
 
   <!--Favicon-->
-  <link rel="shortcut icon" href="{{ '/assets/images/favicon.png' | relative_url }} " type="image/x-icon">
-  <link rel="icon" href="{{ '/assets/images/favicon.png' | relative_url }} " type="image/x-icon">
+  <link rel="shortcut icon" href="{{ '/assets/images/favicon.png' | relative_url }}" type="image/x-icon">
+  <link rel="icon" href="{{ '/assets/images/favicon.png' | relative_url }}" type="image/x-icon">
 
   <!-- google analytics -->
   {% if site.data.settings.google-analytics %}

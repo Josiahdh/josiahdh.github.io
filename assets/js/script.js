@@ -328,7 +328,7 @@
     var cols = isMobile ? 1 : (isTablet ? Math.min(declaredCols, 2) : declaredCols);
     var gap = isMobile ? 2 : 16;
 
-    var containerWidth = container.offsetWidth;
+    var containerWidth = isMobile ? window.innerWidth : container.offsetWidth;
     if (!containerWidth) return;
 
     var colWidth = cols === 1 ? containerWidth : (containerWidth - gap * (cols - 1)) / cols;

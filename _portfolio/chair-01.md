@@ -4,7 +4,7 @@ title: Chair 01
 role: Designer & Fabricator
 tools: [Sketching, Woodworking, Rhino]
 year: 2024
-image: assets/images/chair-01/perspective-4.jpg
+image: assets/images/chair-01/chair-cutout.jpg
 portfolio-type:
   - type: highlights
   - type: design

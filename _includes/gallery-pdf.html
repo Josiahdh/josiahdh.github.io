@@ -16,15 +16,16 @@
       clientId: "{{ site.adobe_pdf_client_id }}",
       divId: "adobe-dc-view"
     });
+    var previewConfig = {
+      embedMode: isMobileBrowser ? "FULL_WINDOW" : "IN_LINE",
+      showAnnotationTools: false,
+      showLeftHandPanel: false
+    };
+    if (isMobileBrowser) previewConfig.defaultViewMode = "CONTINUOUS";
     var previewFilePromise = adobeDCView.previewFile({
       content: { location: { url: "{{ pdf_url }}" } },
       metaData: { fileName: "{{ page.title | escape }}.pdf" }
-    }, {
-      embedMode: isMobileBrowser ? "FULL_WINDOW" : "IN_LINE",
-      defaultViewMode: isMobileBrowser ? "CONTINUOUS" : "",
-      showAnnotationTools: false,
-      showLeftHandPanel: false
-    });
+    }, previewConfig);
     var startPage = {{ start_page }};
     if (startPage > 1) {
       previewFilePromise.then(function(adobeViewer) {

@@ -13,6 +13,6 @@ banner_image:
 theme: light
 gallery:
   type: pdf
-  src: assets/docs/josiah-herfurth-2024-portfolio.pdf
+  src: assets/docs/2024-portfolio.pdf
 
 ---

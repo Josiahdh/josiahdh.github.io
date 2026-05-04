@@ -13,6 +13,6 @@ banner_image:
 theme: light
 gallery:
   type: pdf
-  src: assets/docs/Arch580_Sp25_Herfurth_Josiah.pdf
+  src: assets/docs/2025-paris-studies.pdf
 
 ---

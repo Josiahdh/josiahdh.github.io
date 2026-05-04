@@ -5,27 +5,21 @@
 <div id="adobe-dc-view" class="mb-3"></div>
 <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
 <script>
-  var isMobileBrowser = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth <= 767;
-
-  if (isMobileBrowser) {
-    document.getElementById('adobe-dc-view').style.height = 'calc(100vh - 120px)';
-  }
-
   document.addEventListener("adobe_dc_view_sdk.ready", function () {
     var adobeDCView = new AdobeDC.View({
       clientId: "{{ site.adobe_pdf_client_id }}",
       divId: "adobe-dc-view"
     });
-    var previewConfig = {
-      embedMode: isMobileBrowser ? "FULL_WINDOW" : "IN_LINE",
-      showAnnotationTools: false,
-      showLeftHandPanel: false
-    };
-    if (isMobileBrowser) previewConfig.defaultViewMode = "CONTINUOUS";
+
     var previewFilePromise = adobeDCView.previewFile({
       content: { location: { url: "{{ pdf_url }}" } },
       metaData: { fileName: "{{ page.title | escape }}.pdf" }
-    }, previewConfig);
+    }, {
+      embedMode: "IN_LINE",
+      showAnnotationTools: false,
+      showLeftHandPanel: false
+    });
+
     var startPage = {{ start_page }};
     if (startPage > 1) {
       previewFilePromise.then(function(adobeViewer) {

@@ -112,10 +112,15 @@
       buffer: 1,
     });
 
+    var filterAliases = {
+      "production-design": ["film", "design"],
+    };
+
     function getFiltersFromHash() {
       if (window.location.href.indexOf("#") === -1) return ["highlights"];
       var hash = window.location.hash.replace("#", "");
       if (!hash || hash === "portfolio" || hash === "portfolio-grid") return ["highlights"];
+      if (filterAliases[hash]) return filterAliases[hash];
       return hash.split(",").filter(Boolean);
     }
 

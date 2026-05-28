@@ -18,7 +18,12 @@
       </div>
     </div>
     <div class="row shuffle-wrapper">
-      {% assign portfolio_items = site.portfolio | sort: "year" | reverse %}
+      {% assign sorted_years = site.portfolio | map: "year" | uniq | sort | reverse %}
+      {% assign portfolio_items = "" | split: "" %}
+      {% for y in sorted_years %}
+        {% assign year_items = site.portfolio | where: "year", y | sort: "order" %}
+        {% assign portfolio_items = portfolio_items | concat: year_items %}
+      {% endfor %}
       {% for item in portfolio_items %}
       <div class="col-md-6 col-12 shuffle-item" data-groups="[{% for pt in item.portfolio-type %}{% unless forloop.first %},{% endunless %}&quot;{{ pt.type }}&quot;{% endfor %}]">
         <a href="{{ item.url | prepend: site.baseurl }}" class="position-relative rounded hover-wrapper d-block">

@@ -4,6 +4,7 @@ title: Hollow Man
 role: Art Director
 tools: [Art Direction, Set Design, Prop Weapons, LED Wall Virtual Production]
 year: 2026
+order: 4
 image: assets/images/hollow-man/hollow-man-bts-5.JPG
 portfolio-type:
   - type: film

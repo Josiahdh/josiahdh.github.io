@@ -6,7 +6,6 @@ tools: [Game Design, Project Management]
 year: 2024
 image: assets/images/robodog/logo.png
 portfolio-type:
-  - type: highlights
   - type: games
 banner_color: bg-dark
 accent_color: text-white

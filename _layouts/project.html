@@ -40,7 +40,7 @@ layout: default
           {% endif %}
           {% if page.link %}
           <a href="{{ page.link }}" target="_blank" rel="noopener" class="btn btn-primary btn-sm ml-auto project-meta-btn">
-            View Project &rarr;
+            {{ page.link_text | default: "View Project" }} &rarr;
           </a>
           {% endif %}
         </div>

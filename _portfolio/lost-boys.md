@@ -4,6 +4,7 @@ title: Lost Boys
 role: Writer & Director
 tools: [Screenwriting, Directing, Set Design]
 year: 2026
+order: 2
 image: assets/images/lost-boys/lost-boys-thumbnail.png
 portfolio-type:
   - type: highlights

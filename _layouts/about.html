@@ -2,14 +2,20 @@
 layout: default
 ---
 <!-- page title -->
-<section class="page-title-alt bg-primary position-relative">
+<section class="page-title-alt {{ page.banner_color | default: 'bg-primary' }} position-relative">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1 class="text-white font-tertiary">{{ page.title }}</h1>
+        <h1 class="{{ page.accent_color | default: 'text-white' }} font-tertiary">{{ page.title }}</h1>
       </div>
     </div>
   </div>
+  <!-- background image -->
+  {% if page.banner_image %}
+  <div class="layer-bg w-100">
+    <img class="img-fluid w-100" src="{{ page.banner_image | relative_url }}" alt="{{ page.title | escape }} banner">
+  </div>
+  {% endif %}
   <!-- background shapes
   <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-bg-top.png" alt="illustrations" class="bg-shape-1 w-100">
   <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-sm.png" alt="illustrations" class="bg-shape-2">

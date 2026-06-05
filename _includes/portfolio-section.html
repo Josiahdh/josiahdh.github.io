@@ -31,7 +31,7 @@
           <div class="hover-overlay">
             <div class="hover-content">
               {% if item.title %}<div class="hover-title">{{ item.title }}</div>{% endif %}
-              {% if item.role %}<div class="hover-role">{{ item.role }}</div>{% endif %}
+              {% if item.role %}<div class="hover-role">{{ item.role }}{% if item.year %} · {{ item.year }}{% endif %}</div>{% endif %}
             </div>
           </div>
         </a>

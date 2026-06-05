@@ -21,7 +21,7 @@ google-analytics: G-H8LKPKEECW
 
 hero:
   hero-title: Hi, I'm Josiah Herfurth
-  hero-subtitle: Creator of Spaces, Stories, & Games for People.
+  hero-subtitle: a storyteller building worlds in film, games, and spaces.
   slideshow-images:
     - image: assets/images/chair-01/perspective-1.jpg
       text: light
@@ -40,6 +40,6 @@ social:
 # Portfolio
 
 portfolio-label:
-  - { title: "Games", type: "games" }
   - { title: "Film", type: "film" }
+  - { title: "Games", type: "games" }
   - { title: "Design", type: "design" }

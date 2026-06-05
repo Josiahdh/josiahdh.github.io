@@ -3,7 +3,7 @@ layout: project
 title: The Daydreamer
 role: Writer & Director
 tools: [Screenwriting, Cinematography, Editing, Composing, Color Grading]
-year: 2024
+year: 2023
 image: assets/images/daydreamer/daydreamer-thumbnail.jpg
 portfolio-type:
   - type: highlights

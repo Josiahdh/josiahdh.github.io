@@ -2,7 +2,6 @@
 layout: about
 title: About Me
 author: Josiah Herfurth
-banner_color: bg-dark
 banner_image: assets/images/daydreamer/daydreamer-door-cropped.jpg
 image: assets/images/about/sca-headshot.jpg
 logo: white

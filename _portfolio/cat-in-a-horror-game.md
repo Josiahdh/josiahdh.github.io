@@ -6,7 +6,7 @@ tools: [Unity, C#, Project Management]
 year: 2025
 image: assets/images/cat-game/cat-in-a-horror-game-poster.png
 portfolio-type:
-  - type: highlights
+  - type: featured
   - type: games
 banner_color: bg-dark
 accent_color: text-white

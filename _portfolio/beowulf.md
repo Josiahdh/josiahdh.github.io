@@ -6,7 +6,7 @@ tools: [Worldbuilding, Journaling, Sketching]
 year: 2025
 image: assets/images/beowulf/heorot-2.png
 portfolio-type:
-  - type: highlights
+  - type: featured
   - type: design
 banner_color: bg-dark
 accent_color: text-white

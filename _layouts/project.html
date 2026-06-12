@@ -96,7 +96,7 @@ layout: default
       {% assign current_types = page.portfolio-type | map: "type" %}
       {% assign current_types_filtered = "" | split: "" %}
       {% for t in current_types %}
-        {% unless t == "highlights" %}{% assign current_types_filtered = current_types_filtered | push: t %}{% endunless %}
+        {% unless t == "featured" %}{% assign current_types_filtered = current_types_filtered | push: t %}{% endunless %}
       {% endfor %}
       {% assign current_filtered_count = current_types_filtered | size %}
       {% assign all_others = site.portfolio | where_exp: "item", "item.url != page.url" | sort: "year" | reverse %}
@@ -109,7 +109,7 @@ layout: default
         {% assign item_filtered_count = 0 %}
         {% assign shared_count = 0 %}
         {% for t in item_types %}
-          {% unless t == "highlights" %}
+          {% unless t == "featured" %}
             {% assign item_filtered_count = item_filtered_count | plus: 1 %}
             {% if current_types_filtered contains t %}{% assign shared_count = shared_count | plus: 1 %}{% endif %}
           {% endunless %}

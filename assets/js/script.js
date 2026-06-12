@@ -117,16 +117,16 @@
     };
 
     function getFiltersFromHash() {
-      if (window.location.href.indexOf("#") === -1) return ["highlights"];
+      if (window.location.href.indexOf("#") === -1) return ["featured"];
       var hash = window.location.hash.replace("#", "");
-      if (!hash || hash === "portfolio" || hash === "portfolio-grid") return ["highlights"];
+      if (!hash || hash === "portfolio" || hash === "portfolio-grid") return ["featured"];
       if (filterAliases[hash]) return filterAliases[hash];
       return hash.split(",").filter(Boolean);
     }
 
     function applyFilters(filters) {
-      var categoryFilters = filters.filter(function (f) { return f !== "highlights"; });
-      var highlightsActive = filters.indexOf("highlights") !== -1;
+      var categoryFilters = filters.filter(function (f) { return f !== "featured"; });
+      var featuredActive = filters.indexOf("featured") !== -1;
 
       if (filters.length === 0) {
         myShuffle.filter(Shuffle.ALL_ITEMS);
@@ -134,7 +134,7 @@
       } else {
         myShuffle.filter(function (el) {
           var groups = JSON.parse(el.getAttribute("data-groups"));
-          if (highlightsActive && groups.indexOf("highlights") === -1) return false;
+          if (featuredActive && groups.indexOf("featured") === -1) return false;
           if (categoryFilters.length === 0) return true;
           return categoryFilters.some(function (f) { return groups.indexOf(f) !== -1; });
         });
@@ -153,7 +153,7 @@
 
       document.querySelectorAll(".filter-btn").forEach(function (btn) {
         if (btn.dataset.filter === "all") {
-          btn.classList.toggle("active", filters.length === 0);
+          btn.classList.remove("active");
         } else {
           btn.classList.toggle("active", filters.indexOf(btn.dataset.filter) !== -1);
         }

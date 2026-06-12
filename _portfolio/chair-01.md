@@ -6,7 +6,7 @@ tools: [Sketching, Woodworking, Rhino]
 year: 2024
 image: assets/images/chair-01/chair-cutout.jpg
 portfolio-type:
-  - type: highlights
+  - type: featured
   - type: design
 banner_color: bg-white
 accent_color: text-dark

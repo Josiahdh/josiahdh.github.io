@@ -7,7 +7,7 @@ year: 2026
 order: 3
 image: assets/images/doodle-cards/expo-logo.png
 portfolio-type:
-  - type: highlights
+  - type: featured
   - type: games
 banner_color: bg-dark
 accent_color: text-white

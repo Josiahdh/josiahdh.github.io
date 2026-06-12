@@ -7,7 +7,7 @@ year: 2026
 order: 1
 image: assets/images/masterworks/expo-screenshot-4.png
 portfolio-type:
-  - type: highlights
+  - type: featured
   - type: games
 banner_color: bg-dark
 accent_color: text-white

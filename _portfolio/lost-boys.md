@@ -7,7 +7,7 @@ year: 2026
 order: 2
 image: assets/images/lost-boys/lost-boys-thumbnail.png
 portfolio-type:
-  - type: highlights
+  - type: featured
   - type: film
   - type: design
 banner_color: bg-dark

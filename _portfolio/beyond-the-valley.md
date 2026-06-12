@@ -6,7 +6,7 @@ tools: [Production Design, Set Design, LED Wall Virtual Production]
 year: 2025
 image: assets/images/beyond-the-valley/btvof-bts-2.JPG
 portfolio-type:
-  - type: highlights
+  - type: featured
   - type: film
   - type: design
 banner_color: bg-dark

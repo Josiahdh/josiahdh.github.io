@@ -6,11 +6,11 @@
       <div class="col-12 col-md-auto">
         <div class="filter-pill-wrapper">
           <div class="portfolio-nav-filters">
-            <a class="filter-btn" href="{{ site.baseurl }}/#highlights" data-filter="highlights" data-text="Highlights">Highlights</a>
+            <a class="filter-btn" href="{{ site.baseurl }}/#featured" data-filter="featured" data-text="Featured">Featured</a>
             {% for label in site.data.settings.portfolio-label %}
             <a class="filter-btn" href="{{ site.baseurl }}/#{{ label.type }}" data-filter="{{ label.type }}" data-text="{{ label.title }}">{{ label.title }}</a>
             {% endfor %}
-            <a class="filter-btn filter-btn-all" href="{{ site.baseurl }}/" data-filter="all" data-text="All">All</a>
+            <a class="filter-btn filter-btn-all" href="{{ site.baseurl }}/" data-filter="all" data-text="Show All">Show All</a>
           </div>
           <div class="filter-fade filter-fade-left"><i class="ti-angle-left"></i></div>
           <div class="filter-fade filter-fade-right"><i class="ti-angle-right"></i></div>

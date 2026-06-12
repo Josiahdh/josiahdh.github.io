@@ -6,7 +6,7 @@ tools: [Screenwriting, Cinematography, Editing, Composing, Color Grading]
 year: 2023
 image: assets/images/daydreamer/daydreamer-thumbnail.jpg
 portfolio-type:
-  - type: highlights
+  - type: featured
   - type: film
 banner_color: bg-dark
 accent_color: text-white

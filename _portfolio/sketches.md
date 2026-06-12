@@ -25,7 +25,7 @@ gallery:
       caption: MUDD HALL - Three-point perspective
     - src: assets/images/sketches/mudd-hall-courtyard-2-point.jpg
       caption: MUDD HALL COURTYARD - Two-point perspective
-    - src: assets/images/sketches/schindler-house-2-point.png
+    - src: assets/images/sketches/schindler-house-2-point.jpg
       caption: SCHINDLER HOUSE - Two-point perspective
     - src: assets/images/sketches/harris-courtyard-1-point.jpg
       caption: HARRIS COURTYARD - One-point perspective

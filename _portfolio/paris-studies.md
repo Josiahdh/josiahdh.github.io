@@ -4,7 +4,7 @@ title: Paris Field Studies
 role: Student
 tools: [Sketching, 3D Scanning]
 year: 2025
-image: assets/images/paris-studies/cover.png
+image: assets/images/paris-studies/cover.jpg
 portfolio-type:
   - type: design
 banner_color: bg-white

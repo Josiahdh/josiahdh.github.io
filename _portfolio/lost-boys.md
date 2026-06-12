@@ -5,25 +5,25 @@ role: Writer & Director
 tools: [Screenwriting, Directing, Set Design]
 year: 2026
 order: 2
-image: assets/images/lost-boys/lost-boys-thumbnail.png
+image: assets/images/lost-boys/lost-boys-thumbnail.jpg
 portfolio-type:
   - type: featured
   - type: film
   - type: design
 banner_color: bg-dark
 accent_color: text-white
-banner_image: assets/images/lost-boys/lost-boys-2.png
+banner_image: assets/images/lost-boys/lost-boys-2.jpg
 theme: dark
 gallery:
   type: slider
   images:
-    - src: assets/images/lost-boys/lost-boys-1.png
-    - src: assets/images/lost-boys/lost-boys-2.png
-    - src: assets/images/lost-boys/lost-boys-3.png
-    - src: assets/images/lost-boys/lost-boys-4.png
-    - src: assets/images/lost-boys/lost-boys-5.png
-    - src: assets/images/lost-boys/lost-boys-6.png
-    - src: assets/images/lost-boys/lost-boys-7.png
+    - src: assets/images/lost-boys/lost-boys-1.jpg
+    - src: assets/images/lost-boys/lost-boys-2.jpg
+    - src: assets/images/lost-boys/lost-boys-3.jpg
+    - src: assets/images/lost-boys/lost-boys-4.jpg
+    - src: assets/images/lost-boys/lost-boys-5.jpg
+    - src: assets/images/lost-boys/lost-boys-6.jpg
+    - src: assets/images/lost-boys/lost-boys-7.jpg
     - src: assets/images/lost-boys/lost-boys-bts-1.JPG
     - src: assets/images/lost-boys/lost-boys-bts-2.JPG
     - src: assets/images/lost-boys/lost-boys-screening-1.jpg

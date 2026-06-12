@@ -5,13 +5,13 @@ role: Marketing Lead
 tools: [Trailer Editing, Gameplay Capture]
 year: 2026
 order: 3
-image: assets/images/doodle-cards/expo-logo.png
+image: assets/images/doodle-cards/expo-logo.jpg
 portfolio-type:
   - type: featured
   - type: games
 banner_color: bg-dark
 accent_color: text-white
-banner_image: assets/images/doodle-cards/expo-banner.png
+banner_image: assets/images/doodle-cards/expo-banner.jpg
 theme: dark
 link: https://doodle-cards.fly.dev/
 gallery:
@@ -23,13 +23,13 @@ gallery-screenshots:
   type: grid
   columns: 2
   images:
-    - src: assets/images/doodle-cards/doodle-cards-poster.png
-    - src: assets/images/doodle-cards/expo-screenshot-1.png
-    - src: assets/images/doodle-cards/expo-screenshot-2.png
-    - src: assets/images/doodle-cards/expo-screenshot-3.png
-    - src: assets/images/doodle-cards/expo-screenshot-4.png
-    - src: assets/images/doodle-cards/expo-screenshot-5.png
-    - src: assets/images/doodle-cards/expo-screenshot-6.png
+    - src: assets/images/doodle-cards/doodle-cards-poster.jpg
+    - src: assets/images/doodle-cards/expo-screenshot-1.jpg
+    - src: assets/images/doodle-cards/expo-screenshot-2.jpg
+    - src: assets/images/doodle-cards/expo-screenshot-3.jpg
+    - src: assets/images/doodle-cards/expo-screenshot-4.jpg
+    - src: assets/images/doodle-cards/expo-screenshot-5.jpg
+    - src: assets/images/doodle-cards/expo-screenshot-6.jpg
 
 ---
 

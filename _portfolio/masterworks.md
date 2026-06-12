@@ -5,7 +5,7 @@ role: Lead Producer & Trailer Editor
 tools: [Agile Project Management, Trailer Editing, Gameplay Capture]
 year: 2026
 order: 1
-image: assets/images/masterworks/expo-screenshot-4.png
+image: assets/images/masterworks/expo-screenshot-4.jpg
 portfolio-type:
   - type: featured
   - type: games
@@ -17,13 +17,13 @@ link: https://www.masterworksgame.com/
 gallery:
   type: slider
   images:
-    - src: assets/images/masterworks/expo-screenshot-1.png
-    - src: assets/images/masterworks/expo-screenshot-2.png
-    - src: assets/images/masterworks/expo-screenshot-3.png
-    - src: assets/images/masterworks/expo-screenshot-4.png
-    - src: assets/images/masterworks/expo-screenshot-5.png
-    - src: assets/images/masterworks/moh-trailer-screenshot-1.png
-    - src: assets/images/masterworks/moh-trailer-screenshot-2.png
+    - src: assets/images/masterworks/expo-screenshot-1.jpg
+    - src: assets/images/masterworks/expo-screenshot-2.jpg
+    - src: assets/images/masterworks/expo-screenshot-3.jpg
+    - src: assets/images/masterworks/expo-screenshot-4.jpg
+    - src: assets/images/masterworks/expo-screenshot-5.jpg
+    - src: assets/images/masterworks/moh-trailer-screenshot-1.jpg
+    - src: assets/images/masterworks/moh-trailer-screenshot-2.jpg
 
 ---
 

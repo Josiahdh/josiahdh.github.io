@@ -4,12 +4,12 @@ title: Now You See Us
 role: Editor & Producer
 tools: [Film Editing, Trailer Editing, Color Grading]
 year: 2025
-image: assets/images/now-you-see-us/now-you-see-us-3.png
+image: assets/images/now-you-see-us/now-you-see-us-3.jpg
 portfolio-type:
   - type: film
 banner_color: bg-dark
 accent_color: text-white
-banner_image: assets/images/now-you-see-us/now-you-see-us-3.png
+banner_image: assets/images/now-you-see-us/now-you-see-us-3.jpg
 theme: dark
 link: https://www.pipelineworldwide.org/
 link_text: Learn More

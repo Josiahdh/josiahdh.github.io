@@ -4,7 +4,7 @@ title: Cat in a Horror Game
 role: Co-Creator, Programmer, Producer
 tools: [Unity, C#, Project Management]
 year: 2025
-image: assets/images/cat-game/cat-in-a-horror-game-poster.png
+image: assets/images/cat-game/cat-in-a-horror-game-poster.jpg
 portfolio-type:
   - type: featured
   - type: games
@@ -25,8 +25,8 @@ I co-led design with my amazing co-creator, Tamia Chatmon, and helped implement 
 
 Additionally, I presented on the state of the project at every milestone, and I learned to work with an audio team of four from Berklee College of Music!
 
-| ![Image](/assets/images/cat-game/cat-in-a-horror-game-1.png) | ![Image](/assets/images/cat-game/cat-in-a-horror-game-2.png) |
+| ![Image](/assets/images/cat-game/cat-in-a-horror-game-1.jpg) | ![Image](/assets/images/cat-game/cat-in-a-horror-game-2.jpg) |
 |-------|-------|
-| ![Image](/assets/images/cat-game/cat-in-a-horror-game-3.png) | ![Image](/assets/images/cat-game/cat-in-a-horror-game-4.png) |
+| ![Image](/assets/images/cat-game/cat-in-a-horror-game-3.jpg) | ![Image](/assets/images/cat-game/cat-in-a-horror-game-4.jpg) |
 
-![Image](/assets/images/cat-game/cat-in-a-horror-game-5.png)
+![Image](/assets/images/cat-game/cat-in-a-horror-game-5.jpg)

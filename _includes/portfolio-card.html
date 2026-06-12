@@ -1,6 +1,6 @@
 <div class="col-md-4 col-12 mb-4">
   <a href="{{ project.url | prepend: site.baseurl }}" class="position-relative rounded hover-wrapper d-block">
-    <img src="{{ project.image | relative_url }}" alt="{{ project.title }}" class="img-fluid rounded w-100 d-block">
+    <img src="{{ project.image | relative_url }}" alt="{{ project.title }}" class="img-fluid rounded w-100 d-block" loading="lazy">
     <div class="hover-overlay">
       <div class="hover-content">
         {% if project.title %}<div class="hover-title">{{ project.title }}</div>{% endif %}

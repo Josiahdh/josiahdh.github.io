@@ -36,6 +36,6 @@ gallery:
 
 Directed by Gabriella Preciado and production designed by Maizy Wilkinson Zenger, I had the privilege of art directing this USC Graduate Virtual Production Thesis. Two of my key responsibilities were sourcing prop weapons and designing and building a window frame that slotted on top of a location’s existing window.
 
-| ![Paintover](/assets/images/hollow-man/hollow-man-paintover.png) | ![Built](/assets/images/hollow-man/hollow-man-bts-14.JPG) |
+| ![Paintover](/assets/images/hollow-man/hollow-man-paintover.jpg) | ![Built](/assets/images/hollow-man/hollow-man-bts-14.JPG) |
 |---|---|
 | My early concept paintover of the house | Front porch with the additional window frame installed |

@@ -25,11 +25,11 @@ hero:
   slideshow-images:
     - image: assets/images/chair-01/perspective-1.jpg
       text: light
-    - image: assets/images/masterworks/necronomicon.png
+    - image: assets/images/masterworks/necronomicon.jpg
       text: dark
-    - image: assets/images/lost-boys/lost-boys.png
+    - image: assets/images/lost-boys/lost-boys.jpg
       text: light
-    - image: assets/images/cat-game/cat-in-a-horror-game-5.png
+    - image: assets/images/cat-game/cat-in-a-horror-game-5.jpg
       text: dark
 
 social:

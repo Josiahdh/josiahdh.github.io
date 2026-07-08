@@ -1,0 +1,30 @@
+{% if include.videos %}
+{% assign active_index = include.active_index | default: 0 %}
+<div class="gallery-video-grid mb-5 has-active-item{% if include.wide %} gallery-video-grid-wide{% endif %}">
+  {% for video in include.videos %}
+    {% if video.id %}
+      {% assign vid_id = video.id %}
+    {% elsif video.url contains "youtu.be" %}
+      {% assign vid_id = video.url | split: "/" | last | split: "?" | first %}
+    {% else %}
+      {% assign vid_id = video.url | split: "v=" | last | split: "&" | first %}
+    {% endif %}
+    {% if video.thumbnail %}
+      {% assign thumb_src = video.thumbnail | relative_url %}
+    {% else %}
+      {% assign thumb_src = "https://img.youtube.com/vi/" | append: vid_id | append: "/hqdefault.jpg" %}
+    {% endif %}
+    <div class="gallery-video-grid-item{% if forloop.index0 == active_index %} gallery-video-grid-item-active{% endif %}">
+      <button type="button" class="video-thumb" data-video-id="{{ vid_id }}" aria-label="Play {% if video.caption %}{{ video.caption }}{% else %}video{% endif %}">
+        <img src="{{ thumb_src }}" alt="" loading="lazy" class="img-fluid w-100 rounded">
+        <span class="video-play-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"></path></svg>
+        </span>
+      </button>
+      {% if video.caption %}
+      <p class="gallery-caption text-center">{{ video.caption }}</p>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+{% endif %}

@@ -188,7 +188,7 @@
 }
 
 .gallery-caption {
-  font-size: 0.85rem;
+  font-size: 1.1rem;
   color: $text-color;
   opacity: 0.7;
   font-style: italic;
@@ -196,8 +196,134 @@
   margin-bottom: 0;
 }
 
+.gallery-video-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: dense;
+  gap: 16px;
+
+  // Once an item is expanded, drop to 3 columns so the remaining
+  // thumbnails fill their row evenly instead of leaving a gap.
+  &.has-active-item {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(2, 1fr);
+
+    &.has-active-item {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    &.has-active-item {
+      grid-template-columns: 1fr;
+    }
+
+    // Single column: keep videos in their natural sequence instead of
+    // jumping the active one to the top, which reads as out of order.
+    .gallery-video-grid-item-active {
+      order: initial;
+    }
+  }
+}
+
+.gallery-video-grid-item-active {
+  grid-column: 1 / -1;
+  // Always laid out first, regardless of its position in the grid, so the
+  // expanded video consistently lands above the remaining thumbnails.
+  order: -1;
+}
+
+.gallery-video-grid-wide {
+  // Expands from .col-lg-10's content box out to the full .container width
+  // (matching the col-12 "wide gallery" slot), accounting for the 15px
+  // gutter padding that .col-lg-10 has but its .content child doesn't.
+  width: calc(120% + 6px);
+  margin-left: calc(-10% - 3px);
+  margin-right: calc(-10% - 3px);
+
+  // Reverses the breakout above for just the featured video, so it reads at
+  // body-text column width instead of the full breakout width.
+  &.has-active-item .gallery-video-grid-item-active {
+    width: 100%;
+    max-width: calc(83.3333% - 5px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include desktop {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+
+    &.has-active-item .gallery-video-grid-item-active {
+      max-width: none;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+.gallery-video-grid-item {
+  .video-thumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    img {
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+  }
+
+  .video-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 12px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .video-thumb:hover .video-play-icon,
+  .video-thumb:focus-visible .video-play-icon {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
 .gallery-slider-wrapper {
   padding: 0;
+
+  // Opt in via {% include gallery-slider.html lock_height=true %} to keep every
+  // slide the same height instead of resizing per-image (adaptiveHeight).
+  &.gallery-slider-locked .gallery-slide img {
+    aspect-ratio: var(--gallery-slide-aspect, 16 / 9);
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &.gallery-slider-fit-contain .gallery-slide img {
+    object-fit: contain;
+  }
 
   @include mobile {
     margin-left: -15px;

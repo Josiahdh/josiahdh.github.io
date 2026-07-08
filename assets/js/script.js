@@ -39,15 +39,37 @@
   });
 
   // gallery-slider
-  $(".gallery-slider").slick({
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    arrows: true,
-    adaptiveHeight: true,
-    prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
-    nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',
+  document.querySelectorAll(".gallery-slider").forEach(function (el) {
+    var $el = $(el);
+
+    // Restart any GIF in a slide the moment it becomes active, so it always
+    // plays from frame 0 instead of whatever point it looped to in the background.
+    function restartGifs(slideEl) {
+      if (!slideEl) return;
+      slideEl.querySelectorAll("img").forEach(function (img) {
+        var src = img.getAttribute("src");
+        if (src && /\.gif(\?.*)?$/i.test(src)) {
+          img.src = src.split("?")[0] + "?r=" + Date.now();
+        }
+      });
+    }
+
+    $el.on("init", function (event, slick) {
+      restartGifs(slick.$slides.get(slick.currentSlide));
+    }).on("afterChange", function (event, slick, currentSlide) {
+      restartGifs(slick.$slides.get(currentSlide));
+    });
+
+    $el.slick({
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      arrows: true,
+      adaptiveHeight: el.dataset.adaptiveHeight !== "false",
+      prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
+      nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',
+    });
   });
 
   // testimonial-slider
@@ -386,6 +408,40 @@
   }, { passive: true });
 
   initMasonryGrids();
+
+  // Video grid: click a thumbnail to swap it for a playing embed, promoted to full width
+  document.querySelectorAll(".gallery-video-grid").forEach(function (grid) {
+    // One item is pre-selected server-side to load large; pick it up here
+    // so clicking a different thumbnail correctly collapses it back down.
+    var activeItem = grid.querySelector(".gallery-video-grid-item-active");
+    var activeOriginalBtn = activeItem ? activeItem.querySelector(".video-thumb") : null;
+
+    grid.querySelectorAll(".video-thumb").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var item = btn.closest(".gallery-video-grid-item");
+        var vidId = btn.getAttribute("data-video-id");
+
+        // Collapse the previously expanded item back to its thumbnail
+        if (activeItem && activeItem !== item) {
+          var prevWrapper = activeItem.querySelector(".embed-responsive");
+          if (prevWrapper && activeOriginalBtn) {
+            prevWrapper.replaceWith(activeOriginalBtn);
+          }
+          activeItem.classList.remove("gallery-video-grid-item-active");
+        }
+
+        var wrapper = document.createElement("div");
+        wrapper.className = "embed-responsive embed-responsive-16by9 rounded";
+        wrapper.innerHTML = '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + vidId + '?autoplay=1&rel=0" title="YouTube video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+        btn.replaceWith(wrapper);
+
+        item.classList.add("gallery-video-grid-item-active");
+        grid.classList.add("has-active-item");
+        activeItem = item;
+        activeOriginalBtn = btn;
+      });
+    });
+  });
 
   // Scroll-aware fade overlays on filter pills
   function updateFilterFade(el) {

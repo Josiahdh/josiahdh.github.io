@@ -1,8 +1,51 @@
 // Constrain images rendered from markdown (no img-fluid class applied automatically)
 .content {
+  // Bootstrap's reboot zeroes out margin-top on headings, leaving only a
+  // paragraph's small margin-bottom before one — add real breathing room.
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 3rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
   img {
     max-width: 100%;
     height: auto;
+
+    // Add alongside a width utility, e.g. {:.float-left.w-50}, to let body
+    // text wrap around an inline markdown image.
+    &.float-left,
+    &.float-right {
+      margin-bottom: 1rem;
+
+      @include mobile {
+        float: none;
+        margin-left: 0;
+        margin-right: 0;
+        // Beats a paired Bootstrap width utility (e.g. .w-50), which is
+        // !important and would otherwise leave the image stuck at half width.
+        width: 100% !important;
+      }
+    }
+
+    &.float-left {
+      float: left;
+      margin-right: 1.5rem;
+    }
+
+    &.float-right {
+      float: right;
+      margin-left: 1.5rem;
+    }
+  }
+
+  // Prevents a trailing float from bleeding into whatever comes after .content
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
   }
 
   table {

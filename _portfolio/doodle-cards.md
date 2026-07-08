@@ -33,7 +33,7 @@ gallery-screenshots:
 
 ---
 
-Doodle Cards spawned out of a group within the [Masterworks of Horror](_portfolio/masterworks.md) team. Horizontal in nature, I was brought on to lead marketing material development and assist with design feedback and usability testing.
+Doodle Cards spawned out of a group within the [Masterworks of Horror]({% link _portfolio/masterworks.md %}) team. Horizontal in nature, I was brought on to lead marketing material development and assist with design feedback and usability testing.
 
 {% assign screenshots = page['gallery-screenshots'] %}
 {% include gallery-grid.html images=screenshots.images columns=screenshots.columns %}

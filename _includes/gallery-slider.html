@@ -1,6 +1,8 @@
 {% if include.images %}
-<div class="gallery-slider-wrapper mb-5">
-  <div class="gallery-slider">
+{% assign fit = include.fit | default: "cover" %}
+{% assign aspect_ratio = include.aspect_ratio | default: "16/9" %}
+<div class="gallery-slider-wrapper mb-5{% if include.lock_height %} gallery-slider-locked gallery-slider-fit-{{ fit }}{% endif %}"{% if include.lock_height %} style="--gallery-slide-aspect: {{ aspect_ratio }};"{% endif %}>
+  <div class="gallery-slider" data-adaptive-height="{% unless include.lock_height %}true{% else %}false{% endunless %}">
     {% for img in include.images %}
     <div class="gallery-slide">
       <img src="{{ img.src | relative_url }}" alt="{{ img.caption | default: '' }}" class="img-fluid w-100 rounded">

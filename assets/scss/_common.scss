@@ -213,6 +213,20 @@ a:hover {
   background-color: #222222 !important;
 }
 
+.error-code {
+  font-size: 140px;
+  line-height: 1;
+  margin-bottom: 20px;
+
+  @include desktop {
+    font-size: 100px;
+  }
+
+  @include mobile {
+    font-size: 64px;
+  }
+}
+
 /* icon */
 .icon {
   font-size: 45px;
